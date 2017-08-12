@@ -60,28 +60,40 @@
 			</div>
 			<input type="button" class="tc_close">
 			<form id="soForm" method="post" action="index.html" class="form-inline row">
-
 				<div class="col-xs-12 mar-top-20px">
 					<div class="form-group">
-						<label style="text-align:center;width:100px;">本公司联系人</label>
+						<label style="text-align:center;width:100px;">公司1名称</label>
+						<input type="text" readonly="readonly" class="form-control input-w-3" name="company1" id="company1" data-bv-field="company1" />
+					</div>
+				</div>
+				<div class="col-xs-12 mar-top-20px">
+					<div class="form-group">
+						<label style="text-align:center;width:100px;">公司1联系人</label>
 						<input type="text" class="form-control input-w-3" name="linkman1" id="linkman1" data-bv-field="linkman1" />
 					</div>
 				</div>
 				<div class="col-xs-12 mar-top-20px">
 					<div class="form-group">
-						<label style="text-align:center;width:100px;">本公司邮箱</label>
+						<label style="text-align:center;width:100px;">公司1邮箱</label>
 						<input type="text" class="form-control input-w-3" name="email1" id="email1" data-bv-field="email1"/>
 					</div>
 				</div>
 				<div class="col-xs-12 mar-top-20px">
 					<div class="form-group">
-						<label style="text-align:center;width:100px;">对方联系人</label>
+						<label style="text-align:center;width:100px;">公司2名称</label>
+						<input type="text" readonly="readonly" class="form-control input-w-3" name="company2" id="company2" data-bv-field="company2" />
+					</div>
+				</div>
+				
+				<div class="col-xs-12 mar-top-20px">
+					<div class="form-group">
+						<label style="text-align:center;width:100px;">公司2联系人</label>
 						<input type="text" class="form-control input-w-3" name="linkman2" id="linkman2" data-bv-field="linkman2"/>
 					</div>
 				</div>
 				<div class="col-xs-12 mar-top-20px">
 					<div class="form-group">
-						<label style="text-align:center;width:100px;">对方邮箱</label>
+						<label style="text-align:center;width:100px;">公司2邮箱</label>
 						<input type="text" class="form-control input-w-3" name="email2" id="email2" data-bv-field="email2"/>
 					</div>
 				</div>
@@ -112,7 +124,6 @@
 					<th>状态</th>
 					<th>操作</th>
 				</tr>
-				.
 		</table>
 	</script>
 
@@ -236,7 +247,8 @@
 						"defaultContent": ''
 					}]
 				};
-
+				
+				console.log($('#table-tpl').html());
 				$('#page').html($('#table-tpl').html());
 				var table = $('#table').DataTable({
 					"processing": true,
@@ -269,8 +281,10 @@
 						var top = $('#body').scrollTop();
 						var rowData = table.row($(this.closest('tr'))).data();
 						var data = {
+							company1: rowData[0],
 							linkman1: rowData[1],
 							email1: rowData[2],
+							company2: rowData[3],
 							linkman2: rowData[4],
 							email2: rowData[5],
 							id: rowData[rowData.length - 1]

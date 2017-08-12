@@ -233,9 +233,9 @@ var newIncomeListEntry = {
 //            self.fillFromStk(function() {
 //                $('#fromStkId').val(data.fromStkId);
 //            });
-
             callback && callback();
         });
+        
     },
     initNew: function() {
         var self = this;
@@ -244,9 +244,10 @@ var newIncomeListEntry = {
         self.fillSCompanyCo();
 
         self.fillFromStk();
-        $.mtfStkInfo('PO',jmstoken,function(data) {
-            $('#toStkId').val(data.idStk);
-        });
+        //Modified by Kevin
+//      $.mtfStkInfo('PO',jmstoken,function(data) {
+//          $('#toStkId').val(data.idStk);
+//      });
     },
     dealAction: function(action) {
         if(action=='detail') {

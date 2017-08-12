@@ -42,7 +42,7 @@
                                 <option value="">客户</option>
                             </select>
 
-                            <input type="text" class="form-control input-w-3" name="idCustomerCompany" id="idCustomerCompany2">
+                            <input type="text" class="form-control input-w-3" name="idCustomerCompany2" id="idCustomerCompany2">
                         </div>
                         <div class="form-group">
                             <label for="" class="input-w-160">客户订单号</label>
@@ -75,9 +75,9 @@
                     <!--</div>-->
                     <!-- +\- start -->
                     <div class="col-xs-12 mar-top-20px changerep_cont">
-                        <table id="" cellpadding="0" cellspacing="0">
+                        <table id="" cellpadding="0" cellspacing="0" >
                             <tr>
-                                <th width="116"> 销售单号 </th>
+                                <th width="116px"> 销售单号 </th>
                                 <th width="130px"> 物料</th>
                                 <th width="170px"> 从货架</th>
 								<th width="91px"> 应发货数量</th>
@@ -113,7 +113,7 @@
 <script type="text/html" id="incomeListItemTmpl">
     <dl class="matlist" id="item<%= item %>">
         <dd class="income-create-list">
-            <select style="width:98px" name="smtfItems[item<%= item %>][soId]:number" id="smtfItems.item<%= item %>.soId" class="select-cs1 a">
+            <select style="width:115px" name="smtfItems[item<%= item %>][soId]:number" id="smtfItems.item<%= item %>.soId" class="select-cs1 a">
                 <% if(data.soId) { %>
                 <option value="<%= data.soId %>"><%= data.soCode %></option>
                 <% } else { %>
@@ -121,10 +121,10 @@
                 <% } %>
             </select>
             <input class="g" name="smtfItems[item<%= item %>][materialId]:number" id="smtfItems.item<%= item %>.materialId;" style="width:156px" type="hidden" />
-            <input type="text" class="b" placeholder="物料" style="width:91px" readonly="true" />
+            <input type="text" class="b" placeholder="物料" style="width:125px" readonly="true" />
             <!--<input type="hidden" class="b-id" name="smtfItems[item<%= item %>][material]:number" value="<%= data.material %>" placeholder="物料" style="width:150px" readonly="true" />-->
             <% if(data.fromBinId) { %>
-            <select class="select-cs1 d" name="smtfItems[item<%= item %>][fromBinId]:number" id="smtfItems.item<%= item %>.fromBinId" style="width:125px">
+            <select class="select-cs1 d" name="smtfItems[item<%= item %>][fromBinId]:number" id="smtfItems.item<%= item %>.fromBinId" style="width:168px">
                 <option value="<%= data.fromBinId %>"><%= data.fromBin %></option>
             </select>
             <% } else { %>
@@ -134,11 +134,11 @@
             <input type="hidden" class="i" name="smtfItems[item<%= item %>][inventoryQty]:number" value="<%= data.inventoryQty %>" id="smtfItems.item<%= item %>.inventoryQty" placeholder="库存" style="width:85px">
             <% } %>
             <input type="hidden" class="h" name="smtfItems[item<%= item %>][toBinId]:number" value="<%= data.toBinId %>" id="smtfItems.item<%= item %>.toBinId" placeholder="到货架" style="width:85px">
-						<input type="text" class="c" name="smtfItems[item<%= item %>][qty]:number" value="<%= data.qty %>" id="smtfItems.item<%= item %>.qty" style="width: 87px" placeholder="应发货数量" style="width:85px">
-						<input type="text" class="c" name="smtfItems[item<%= item %>][qty]:number" value="<%= data.qty %>" id="smtfItems.item<%= item %>.qty" style="width: 84px" placeholder="已发货数量" style="width:85px">
-						<input type="text" class="c" name="smtfItems[item<%= item %>][qty]:number" value="<%= data.qty %>" id="smtfItems.item<%= item %>.qty" style="width: 84px" placeholder="发货数量" style="width:85px">
+						<input type="text" class="c" name="smtfItems[item<%= item %>][qty]:number" value="<%= data.qty %>" id="smtfItems.item<%= item %>.qty" style="width: 87px" placeholder="应发货数量">
+						<input type="text" class="c" name="smtfItems[item<%= item %>][qty]:number" value="<%= data.qty %>" id="smtfItems.item<%= item %>.qty" style="width: 84px" placeholder="已发货数量" >
+						<input type="text" class="c" name="smtfItems[item<%= item %>][qty]:number" value="<%= data.qty %>" id="smtfItems.item<%= item %>.qty" style="width: 84px" placeholder="发货数量">
 
-            <input type="text" class="e" name="smtfItems[item<%= item %>][remark]" value="<%= data.remark %>" id="smtfItems.item<%= item %>.remark" placeholder="备注" style="width:130px">
+            <input type="text" class="e" name="smtfItems[item<%= item %>][remark]" value="<%= data.remark %>" id="smtfItems.item<%= item %>.remark" placeholder="备注" style="width:176px">
             <span class="action">
                 <a class="button-sytle1  new-income-add">+</a>
                 <a class="button-sytle1 new-income-delete">-</a>
@@ -504,7 +504,7 @@
                 $('.new-income-add').remove();
                 $('#save').remove();
                 $('#operation').remove();
-                $('table','#doForm').attr('width','706px');
+//              $('table','#doForm').attr('width','706px');
 
         },
         DefaultRowData: {
@@ -627,6 +627,7 @@
                 var $form     = $(e.target);
                 var validator = $form.data('bootstrapValidator');
                 var doform =JSON.stringify($('#doForm').serializeJSON());
+                console.log(doform);
                 $.saveMtf(doform,jmstoken,function(data){
                     if(data.valid) {
 //                        $.get("views/doList.html",function(data){

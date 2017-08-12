@@ -349,9 +349,9 @@
                               });
                           },
                           '往来收货':function(){
-                              historyOptions.viewId='subcontract-receiveDo';
+                              historyOptions.viewId='subcontract-receiveDo1';
                               historyOptions.incomeId=rowData[10];
-                              $.get("views/subcontract-receiveDo.html",function(data){
+                              $.get("views/subcontract-receiveDo1.html",function(data){
                                   RouterManager.setUrl(historyOptions);
                                   $("#body").html(data);
                               });

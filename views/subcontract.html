@@ -199,11 +199,13 @@
             });
 
             // 表格操作按钮
+            $('#table tbody').unbind( "click" );
             $('#table tbody').on( 'click', 'button', function () {
                 var rowData = self.table.row( $(this).parents('tr') ).data();
                 var historyOptions = {
                     groupId:'subcontract',
-                    orderId:rowData[12]
+//                  orderId:rowData[12],
+                    incomeId:rowData[12]
                 };
                 var clazz =$(this).attr('class');
                 //手动完成
