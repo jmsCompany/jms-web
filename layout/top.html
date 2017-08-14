@@ -22,8 +22,8 @@ $(document).on('click','.sys',function(e){
     };
     e.preventDefault();
     e.stopPropagation();
-    $.get("views/sys-position.html",function(data){
-        historyParams.viewId = 'sys-position';
+    $.get("views/sys-employee.html",function(data){
+        historyParams.viewId = 'sys-employee';
         RouterManager.setUrl(historyParams);
         $("#body").html(data);
     });
