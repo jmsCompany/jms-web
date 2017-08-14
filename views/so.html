@@ -99,8 +99,9 @@ var soList = {
 				$('.tcbox').css({
 					top: $(window).height() * 0.2 + top
 				}).draggable().show();
-				$.soInfo(rowData[11], jmstoken, function (data) {
-					$('#soForm').populate(data,true);
+				$.soInfo1(rowData[11], jmstoken, function (data) {
+					 $('#soForm').populate(data,true);
+					//$('#idSo').val(rowData[11]);
 					$('#statusId').empty();
 					$('#statusId').selectautofill('s/getSStatusList',{headers:{'JMS-TOKEN':store.get('JMS-TOKEN')},data:{'source':'s_so','removeEdit':true}},function(){
 						$('#statusId').val(data.sStatusId);

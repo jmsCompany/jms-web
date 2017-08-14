@@ -7,10 +7,10 @@
     // $clientURL = "http://118.178.94.7:9998/jms/"
 	//$.fn.dataTable.ext.errMode = 'throw';
 
-    //  $clientURL = "http://118.178.94.7:9998/jms/"
+      $clientURL = "http://118.178.94.7:9998/jms/"
 	 $.fn.dataTable.ext.errMode = 'throw';
 
-    $clientURL = "http://localhost:9998/jms/"
+    //$clientURL = "http://localhost:9998/jms/"
 	//$clientURL = "http://192.168.1.101:9998/jms/"
 
     $.JMSClient = function (path,opt,callback) {
@@ -414,12 +414,12 @@
 		$.JMSClient('s/saveSSoAutoRemark1',{'type':'POST',headers:{'JMS-TOKEN':jmstoken},data:WSSSoRemark},callback);
 	};
       //显示销售订单信息
-      $.soInfo = function(soId,jmstoken,callback){
-          $.JMSClient('s/findSo',{headers:{'JMS-TOKEN':jmstoken},data:{soId:soId}},callback);
+	$.soInfo = function(soId,jmstoken,callback){
+          $.JMSClient('s/findSo1',{headers:{'JMS-TOKEN':jmstoken},data:{soId:soId}},callback);
       };
 	//显示销售订单信息
-	$.soInfo1 = function(soId,jmstoken,callback){
-		$.JMSClient('s/findSo1',{headers:{'JMS-TOKEN':jmstoken},data:{soId:soId}},callback);
+	$.soInfo1 = function(soNum,jmstoken,callback){
+		$.JMSClient('s/findSoBySoNum',{headers:{'JMS-TOKEN':jmstoken},data:{soNum:soNum}},callback);
 	};
 	//显示销售订单物料信息
 	$.soMatInfo = function(soId,jmstoken,callback){
