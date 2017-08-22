@@ -7,10 +7,10 @@
     // $clientURL = "http://118.178.94.7:9998/jms/"
 	//$.fn.dataTable.ext.errMode = 'throw';
 
-      $clientURL = "http://118.178.94.7:9998/jms/"
+    //  $clientURL = "http://118.178.94.7:9998/jms/"
 	 $.fn.dataTable.ext.errMode = 'throw';
 
-    //$clientURL = "http://localhost:9998/jms/"
+    $clientURL = "http://localhost:9998/jms/"
 	//$clientURL = "http://192.168.1.101:9998/jms/"
 
     $.JMSClient = function (path,opt,callback) {
@@ -1050,6 +1050,29 @@
     };
 
 
+
+
+
+	$.ajaxDownload=function(urlPost,headers,data){
+		$.ajax({
+			url: urlPost,
+			type: "GET",
+			cache: false,
+			headers: headers,
+			data:data,
+			beforeSend:function(){
+				//$("#grid_crud").pqGrid("showLoading")
+			},
+			success: function(filename) {
+				//alert("sss")
+				//var url = urlPost + (((urlPost.indexOf("?") > 0) ? "&" : "?") + $.param(data));
+				$(document.body).append("<iframe height='0' width='0' frameborder='0'  src=" + urlPost + "></iframe>")
+			},
+			complete:function(data){
+				//$("#grid_crud").pqGrid("hideLoading")
+			}
+		});
+	};
 
 
 })(jQuery, window, document);

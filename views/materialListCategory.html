@@ -35,7 +35,7 @@ $(document).ready(function() {
                         "url": "js/datatable/chinese.json"
                    },
       	dom: "tip",
-		"iDisplayLength":"50"
+		pageLength:"50"
 		
     } );
     $('#tableMcate tbody').on( 'click', 'button', function () {
@@ -58,14 +58,9 @@ $(document).ready(function() {
      	}
         else{
         	$.deleteMCate(data[3],jmstoken,function(data){
-        	    if (!data.valid){
-        	        alert(data.msg)
-				}else{
-					$.get("views/materialListCategory.html",function(data){
-
-						$("#body").html(data);
-					});
-                }
+     		  	$.get("views/materialListCategory.html",function(data){
+	                $("#body").html(data);
+	            });
      		});
         }
     } );
@@ -131,6 +126,13 @@ $(document).ready(function() {
 			$("#body").html(data).appendTo("#tabcont1");
 		});
 	});
+	$('#binImport').click(function(){
+		historyOptions.viewId='bin-import';
+		$.get("views/bin-import.html",function(data){
+			RouterManager.setUrl(historyOptions);
+			$("#body").html(data);
+		});
+	});
 	// 弹窗拖拽
 	$(function () {
 		$('#draggable1').draggabilly();
@@ -144,6 +146,7 @@ $(document).ready(function() {
 	 <span class="h-title" id="wul1">仓库管理</span>
      <span class="h-title-selected"><b>物料分类</b></span>
 	<span class="h-title" id="matLoc">物料库位</span>
+	<span class="h-title" id="binImport">货架导入</span>
 </div>
 <div class="cont">
 	<div class="r-header-body">

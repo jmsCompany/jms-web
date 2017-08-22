@@ -114,11 +114,17 @@
 							top: $(window).height() * 0.2 + top
 						}).draggable().show();
 						// showObj('#tcbox-pcpplist');
+						//alert("sss")
+
 						$.woInfo(data[6], jmstoken, function(data) {
+						   // alert(data.soId);
 							$('#woForm').populate(data, true);
+							//$('#soId').val(data.soId);
+							//this.autoFill();
                             $('#st').val($.dateFormat.date(new Date(data.st), 'yyyy-MM-dd'));
                             $('#ft').val($.dateFormat.date(new Date(data.ft), 'yyyy-MM-dd'));
 						});
+
 						$('#woNo').prop('readonly', true);
 						$('#soId').prop('disabled', true);
 					} else if (clazz == 'button-finish') {
@@ -138,6 +144,7 @@
 				});
 			},
 			autoFill: function() {
+			//	alert("fillle");
 				$('#soId').selectautofill('s/findOpenedSoList', {
 					headers: {
 						'JMS-TOKEN': store.get('JMS-TOKEN')
@@ -316,6 +323,7 @@
 					var form = JSON.parse(JSON.stringify(wo));
 					form.soId = $('#soId').val();
 					$.saveWo(form, jmstoken, function(data) {
+
 						$.get("views/p-workorder.html", function(data) {
 							$("#body").html(data);
 						});

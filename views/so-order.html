@@ -205,7 +205,7 @@
 		},
 		loadDetail: function(idSo, callback) {
 			var self = this;
-			$.soInfo1(idSo, jmstoken, function(data) {
+			$.soInfo(idSo, jmstoken, function(data) {
 
 				$('#poForm').populate(data, true);
 				$('#sCompanyCoId').selectautofill('s/getCompanyCoList', {

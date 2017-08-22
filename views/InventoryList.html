@@ -224,6 +224,7 @@
                 }
 
 
+     //           $.ajaxDownload(url,{'JMS-TOKEN':jmstoken},null);
                 var req = new XMLHttpRequest();
 
                 req.open('GET', url, false);
@@ -233,6 +234,7 @@
                     var blob = new Blob([req.response], {type: "application/octet-stream"});
                     //window.URL.createObjectURL(blob);
                     var csvUrl = URL.createObjectURL(blob);
+                  //  alert(csvUrl);
                     window.open(csvUrl);
                 };
 

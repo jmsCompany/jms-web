@@ -186,7 +186,7 @@
                     dom: "tip",
                     "iDisplayLength": 50,
                 } );
-
+                $('#tablePo tbody').unbind( "click" );
                 $('#tablePo').on( 'draw.dt', function (e, setting) {
                     $.each(setting.aoData, function(i, v) {
                         if(v._aData[4] !== '编辑') {

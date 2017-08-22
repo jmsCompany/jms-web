@@ -48,7 +48,7 @@ $(document).ready(function() {
                    },
       
         dom: "tip",
-        "iDisplayLength":"50"
+        pageLength:"50"
 		
     } );
 
@@ -118,6 +118,13 @@ $(document).ready(function() {
 			$("#body").html(data);
 		});
 	});
+	$('#binImport').click(function(){
+		historyOptions.viewId='bin-import';
+		$.get("views/bin-import.html",function(data){
+			RouterManager.setUrl(historyOptions);
+			$("#body").html(data);
+		});
+	});
 } );
 </script>
 
@@ -127,6 +134,7 @@ $(document).ready(function() {
      <span class="h-title-selected"><b>仓库管理</b></span>
 	 <span class="h-title" id="wul1">物料分类</span>
 	 <span class="h-title" id="matLoc">物料库位</span>
+	<span class="h-title" id="binImport">货架导入</span>
 </div>
 <div class="cont">
 <div class="r-header-body">
